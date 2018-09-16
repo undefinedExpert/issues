@@ -18,7 +18,7 @@ class ReactGithubIssuesList extends Component {
     const { isLoaded, issues } = this.state
     return (
       <div style={{padding: '20px 20px'}}>
-        <h1>React repository issues from last 7 days</h1>
+        <h1>30 issues from React repository from last 7 days</h1>
         { isLoaded ? issues.map((issue) => <Issue key={shortId()} {...issue} />) : 'Loading...'}
       </div>
     );

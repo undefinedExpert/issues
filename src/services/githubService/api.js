@@ -11,10 +11,11 @@ const endPoints = {
     return `${this.organizationRepos(organization)}/${repository}`
   },
   repoIssues(organization, repository) {
-    return `${this.organizationRepo(organization, repository)}/issues?since=2018-09-16`
+    return `${this.organizationRepo(organization, repository)}/issues`
   }
 }
 
-export const getOrganizationRepositoryList = (organization, repository) =>
-  http.get(GITHUB_SERVICE, endPoints.repoIssues(organization, repository))
+export const getOrganizationRepositoryList = (organization, repository, since) =>
+  http.get(GITHUB_SERVICE, endPoints.repoIssues(organization, repository), { params: {since} })
+
 

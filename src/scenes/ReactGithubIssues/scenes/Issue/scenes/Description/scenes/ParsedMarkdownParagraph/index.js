@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { markdown } from 'markdown'
 import PropTypes from 'prop-types'
+import Paragraph from 'components/Paragraph'
 
 class ParsedMarkdownParagraph extends PureComponent {
   state = {
@@ -20,7 +21,7 @@ class ParsedMarkdownParagraph extends PureComponent {
   render() {
     const { parsedText } = this.state
     return (
-      <p dangerouslySetInnerHTML={{__html: parsedText}} />
+      <Paragraph dangerouslySetInnerHTML={{__html: parsedText}} />
     );
   }
 }
