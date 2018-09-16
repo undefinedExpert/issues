@@ -4,13 +4,11 @@ import { services, GITHUB_SERVICE } from 'services/http'
 
 describe('githubService', function () {
   const mockData = [{ user: { login: 'some login' }, notWanted: 'fixture', body: 'fixture', title: 'fixture', url: 'fixture' }]
-  const date = last7DaysDate().toISOString()
-
   beforeEach(() => {
     nock(services[GITHUB_SERVICE].url)
       .persist()
-      .get(`/repos/facebook/react/issues?since=${date}`)
-      .reply(200, mockData);
+      .get(/issues.*$/)
+      .reply(200, mockData)
   });
 
   it('Should return correct data from githubReactIssues', async () => {
