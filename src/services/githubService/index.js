@@ -1,1 +1,1 @@
-export default from './handlers'
+export { githubReactIssues } from './handlers'

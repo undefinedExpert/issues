@@ -3,7 +3,7 @@ import nock from 'nock'
 import { services, GITHUB_SERVICE } from 'services/http'
 
 describe('githubService', function () {
-  const mockData = { someServiceData: [] }
+  const mockData = [{ user: { login: 'some login' }, notWanted: 'fixture', body: 'fixture', title: 'fixture', url: 'fixture' }]
 
   beforeEach(() => {
     nock(services[GITHUB_SERVICE].url)
@@ -12,8 +12,15 @@ describe('githubService', function () {
       .reply(200, mockData);
   });
 
-  it('should make mock request and return correct data', async () => {
+  it('Should return correct data from githubReactIssues', async () => {
     const result = await githubReactIssues();
-    expect(result.data).toEqual(mockData)
+    const { user: { login }, body, title, url } = mockData[0]
+    const expectedData = [{
+      login,
+      title,
+      description: body,
+      link: url,
+    }]
+    expect(result).toEqual(expectedData)
   });
 });

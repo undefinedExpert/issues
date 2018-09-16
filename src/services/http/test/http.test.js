@@ -4,7 +4,6 @@ import { services, GITHUB_SERVICE } from '../config'
 
 describe('http', function () {
   const mockData = { someServiceData: [] }
-
   beforeEach(() => {
     nock(services[GITHUB_SERVICE].url)
       .persist()

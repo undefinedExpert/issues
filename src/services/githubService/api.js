@@ -11,7 +11,7 @@ const endPoints = {
     return `${this.organizationRepos(organization)}/${repository}`
   },
   repoIssues(organization, repository) {
-    return `${this.organizationRepo(organization, repository)}/issues`
+    return `${this.organizationRepo(organization, repository)}/issues?since=2018-09-16`
   }
 }
 
