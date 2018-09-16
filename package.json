@@ -2,7 +2,7 @@
   "name": "sunscrapers-test",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://lanskey.github.io/github-test",
+  "homepage": "https://lanskey.github.io/issues/",
   "dependencies": {
     "axios": "^0.18.0",
     "gh-pages": "^2.0.0",
@@ -14,12 +14,12 @@
     "shortid": "^2.2.13"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "devDependencies": {
     "nock": "^10.0.0",
