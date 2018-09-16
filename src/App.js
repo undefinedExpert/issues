@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import ReactGithubIssues from 'scenes/ReactGithubIssues'
 
 class App extends Component {
