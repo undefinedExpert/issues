@@ -1,9 +1,9 @@
 import axios from 'axios'
-import config from './config'
+import { services } from './config'
 import {isNull, omitBy} from 'lodash'
 
 const http = async (method, service, endpoint, options) => {
-  const {url, key} = config[service]
+  const {url, key} = services[service]
   const params = options && options.params ? options.params : {}
 
   return await axios[method](

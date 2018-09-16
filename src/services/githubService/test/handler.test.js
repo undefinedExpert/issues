@@ -1,19 +1,19 @@
-import http from '../http'
+import { githubReactIssues } from '../handlers'
 import nock from 'nock'
-import { services, GITHUB_SERVICE } from '../config'
+import { services, GITHUB_SERVICE } from 'services/http'
 
-describe('http', function () {
+describe('githubService', function () {
   const mockData = { someServiceData: [] }
 
   beforeEach(() => {
     nock(services[GITHUB_SERVICE].url)
       .persist()
-      .get("/fixture")
+      .get("/repos/facebook/react/issues")
       .reply(200, mockData);
   });
 
   it('should make mock request and return correct data', async () => {
-    const result = await http.get(GITHUB_SERVICE, '/fixture');
+    const result = await githubReactIssues();
     expect(result.data).toEqual(mockData)
   });
 });
